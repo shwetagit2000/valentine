@@ -107,7 +107,7 @@ button {
     z-index: 20;
 }
 
-.envelope {
+/* .envelope {
     font-size: 150px;
     cursor: pointer;
     transition: 0.3s;
@@ -115,6 +115,16 @@ button {
 
 .envelope:hover {
     transform: scale(1.1);
+} */
+     .envelope {
+    font-size: clamp(130px, 28vw, 170px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-shadow: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+.envelope:active {
+    transform: scale(1.15);
 }
 
 /* EXPLODING HEARTS */
@@ -333,4 +343,5 @@ function openEnvelope() {
 </body>
 
 </html>
+
 
