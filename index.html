@@ -1,193 +1,326 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<title>Valentine 💖</title>
-
+<title>For My Love❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
-
 body {
-
-margin: 0;
-
-height: 100vh;
-
-background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-
-display: flex;
-
-justify-content: center;
-
-align-items: center;
-
-font-family: Arial, sans-serif;
-
-overflow: hidden;
-
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
 }
 
+/* FIRST PAGE CENTER */
+.center-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* FLOATING HEARTS FIRST PAGE */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    color: rgba(255,255,255,0.7);
+    animation: floatUp 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
+
+/* MAIN CARD */
 .card {
-
-background: white;
-
-padding: 30px;
-
-border-radius: 20px;
-
-text-align: center;
-
-box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-width: 90%;
-
-max-width: 350px;
-
-position: relative;
-
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 380px;
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
-
-color: #ff4d6d;
-
-margin-bottom: 25px;
-
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    margin-bottom: 30px;
+    font-size: 22px;
 }
 
 button {
-
-padding: 12px 25px;
-
-font-size: 16px;
-
-border: none;
-
-border-radius: 25px;
-
-cursor: pointer;
-
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .yes {
+    background: #ff4d6d;
+    color: white;
+}
 
-background: #ff4d6d;
-
-color: white;
-
+.yes:hover {
+    transform: scale(1.1);
 }
 
 .no {
-
-background: #ddd;
-
-position: absolute;
-
-left: 20px;
-
-top: 120px;
-
+    background: #f1f1f1;
+    position: absolute;
+    left: 20px;
+    top: 140px;
 }
 
-</style>
+/* ENVELOPE SCREEN */
+.love-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg,#ff4d6d,#ff758f);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    z-index: 20;
+}
 
+.envelope {
+    font-size: 150px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.1);
+}
+
+/* EXPLODING HEARTS */
+.big-heart {
+    position: fixed;
+    font-size: 80px;
+    animation: explode 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 30;
+}
+
+@keyframes explode {
+    0% { transform: translate(0,0) scale(0.3); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(2); opacity: 0; }
+}
+
+/* FINAL PAGE */
+.final-screen {
+    display: none;
+    padding: 60px 15px;
+    background: #fad0c4;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* HEARTS BACKGROUND LAYER */
+.hearts-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* BACKGROUND HEART STYLE */
+.bg-heart {
+    position: absolute;
+    font-size: 35px;
+    color: rgba(255,255,255,0.15);
+    pointer-events: none;
+}
+
+/* LOVE CARD */
+.love-card {
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    width: 95%;
+    max-width: 420px;
+    margin: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: scale(0);
+    animation: popUp 0.6s ease forwards;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes popUp {
+    to { transform: scale(1); }
+}
+
+.love-card img {
+    width: 100%;
+    max-height: 350px;   
+    object-fit: cover;   
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.love-card p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.7;
+    text-align: left;
+}
+
+@media(max-width:480px){
+    h1 { font-size:18px; }
+    .envelope { font-size:120px; }
+}
+</style>
 </head>
 
 <body>
 
-
-<div class="card">
-
-<h1>💘 yourname, will you be my Valentine? 💘</h1>
-
-<button class="yes" onclick="yesClick()">Yes ❤️</button>
-
-<button class="no" id="noBtn">No 😢</button>
-
+<div class="center-screen" id="mainPage">
+    <div class="card">
+    <h1>💗 Will you be my Valentine? 🥺💗</h1>
+        <button class="yes" onclick="yesClick()">Yes 💗</button>
+        <button class="no" id="noBtn">No 🥲</button>
+    </div>
 </div>
 
+<div class="love-screen" id="loveScreen">
+   <h1>💌 A tiny love note is waiting… click me! 💕</h1>
+    <div class="envelope" onclick="openEnvelope()">💌</div>
+</div>
+
+<div class="final-screen" id="finalScreen">
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="love-card">
+        <img src="c:\Users\sweta\Downloads\kk.jpeg" alt="His Photo">
+        <p>
+           From Lovely ^_^
+
+To, my love Kshitij,
+
+I’m writing this little digital love letter to you because you deserve something beautiful , just like you.
+
+I love you… so, so, so much. You have no idea how deeply you live in my heart. From the moment I open my eyes in the morning to the second I fall asleep at night, you are there — in my thoughts, in my smile, in my every breath.
+
+Your eyes are the prettiest I have ever seen, and your smile… your smile heals parts of me I didn’t even know were hurting. Being with you makes life feel softer, warmer, magical. I’m so grateful you exist. Thank you for choosing me. Thank you for being mine.
+
+I promise you — I am yours, and I will always stand beside you. Through every storm, every hurdle, every challenge life throws at us… we’ll face it together. I believe in you with all my heart.
+
+And I believe in us.
+
+I truly feel we were always meant to find each other. Maybe life just needed to shape us a little before bringing us together — so we could meet as our real selves. And this year… this year was ours. For that, I will always be thankful.
+
+Harshit, I love you so so so so so so so so so so so so so so so much — more than words can ever hold.
+
+And when we finally meet… I’ll make sure to make you my breakfast, lunch, dinner, and dessert. Hehe… I know you’re giggling right now, badmaash.
+
+Promise me something — promise me you’ll feel everything with me. Your happiness, your sadness, your fears, your dreams — share it all with me. You are never alone. I will always be your lover, your safe place, your best friend, your partner in everything this life brings.
+
+You came into my life when I wasn’t even expecting a miracle… and you became one.
+
+You are my sunflower 🌻
+And I love you, baby ❤️
+        </p>
+    </div>
+</div>
 
 <script>
-
 const noBtn = document.getElementById("noBtn");
-
 const card = document.querySelector(".card");
 
+let heartInterval;
 
-function randomMove() {
-
-const maxX = card.clientWidth - noBtn.offsetWidth;
-
-const maxY = card.clientHeight - noBtn.offsetHeight;
-
-
-const x = Math.random() * maxX;
-
-const y = Math.random() * maxY;
-
-
-noBtn.style.left = x + "px";
-
-noBtn.style.top = y + "px";
-
+/* Floating hearts ONLY on first page */
+function createHeart() {
+    const mainPage = document.getElementById("mainPage");
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    mainPage.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
 }
 
+heartInterval = setInterval(createHeart, 400);
 
-// No button keeps moving
-
+/* Moving NO */
+function randomMove() {
+    const maxX = card.clientWidth - noBtn.offsetWidth;
+    const maxY = card.clientHeight - noBtn.offsetHeight;
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+}
 setInterval(randomMove, 700);
 
-
 function yesClick() {
-
-document.body.innerHTML = `
-
-<div style="
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-background:#ff9a9e;
-
-color:white;
-
-text-align:center;
-
-padding:20px;
-
-">
-
-<h1>💖 Yayyy yourname! I knew it 😍💖</h1>
-
-<img
-
-src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
-
-alt="Dancing girl"
-
-style="width:250px; margin-top:20px; border-radius:20px;"
-
->
-
-</div>`;
-
+    clearInterval(heartInterval); // Stop floating hearts
+    document.getElementById("mainPage").style.display = "none";
+    document.getElementById("loveScreen").style.display = "flex";
 }
 
+function openEnvelope() {
+
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    document.querySelector(".envelope").style.display = "none";
+
+    for (let i = 0; i < 120; i++) {
+        const heart = document.createElement("div");
+        heart.className = "big-heart";
+        heart.innerHTML = "❤️";
+
+        const randomX = (Math.random() - 0.5) * screenWidth * 2 + "px";
+        const randomY = (Math.random() - 0.5) * screenHeight * 2 + "px";
+
+        heart.style.setProperty("--x", randomX);
+        heart.style.setProperty("--y", randomY);
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1500);
+    }
+
+    setTimeout(() => {
+        document.getElementById("loveScreen").style.display = "none";
+        document.getElementById("finalScreen").style.display = "block";
+
+        const bgContainer = document.getElementById("heartsBg");
+        const pageHeight = document.body.scrollHeight;
+
+        for (let i = 0; i < 300; i++) {
+            const bgHeart = document.createElement("div");
+            bgHeart.className = "bg-heart";
+            bgHeart.innerHTML = "❤️";
+            bgHeart.style.left = Math.random() * 100 + "vw";
+            bgHeart.style.top = Math.random() * pageHeight + "px";
+            bgContainer.appendChild(bgHeart);
+        }
+
+        window.scrollTo(0,0);
+
+    }, 1600);
+}
 </script>
 
-
 </body>
-
 </html>
