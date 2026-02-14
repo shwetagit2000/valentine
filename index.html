@@ -24,6 +24,7 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
 /* FIRST PAGE CENTER */
 .center-screen {
     height: 100vh;
@@ -94,19 +95,7 @@ button {
 }
 
 /* ENVELOPE SCREEN */
-/* .love-screen {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(135deg,#ff4d6d,#ff758f);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    z-index: 20;
-} */
-    .love-screen {
+.love-screen {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -120,18 +109,24 @@ button {
     z-index: 20;
 }
 
-.envelope {
+/* .envelope {
     font-size: 150px;
     cursor: pointer;
     transition: 0.3s;
-}
-
-.envelope:hover {
-    transform: scale(1.1);
+} */
+ .envelope {
+    font-size: clamp(130px, 28vw, 170px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* text-shadow: 0 8px 20px rgba(255,255,255,0.5); */
 }
 
 .envelope:active {
     transform: scale(1.15);
+}
+
+.envelope:hover {
+    transform: scale(1.1);
 }
 
 /* EXPLODING HEARTS */
@@ -177,7 +172,7 @@ button {
 
 /* LOVE CARD */
 .love-card {
-    background: white;
+    /* background: white; */
     padding: 25px;
     border-radius: 25px;
     width: 95%;
@@ -227,7 +222,7 @@ button {
 </div>
 
 <div class="love-screen" id="loveScreen">
-   <h1 style="color:#fff; position: relative; z-index: 1;">💌 A tiny love note is waiting… click me! 💕</h1>
+ <h1 style="color:#e2d3d6;">💌 A tiny love note is waiting… click me! 💕</h1>
     <div class="envelope" onclick="openEnvelope()">💌</div>
 </div>
 
@@ -238,7 +233,7 @@ button {
        <img src="Kshitij-Valentine.jpeg" alt="His Photo">
         <p>
            From Lovely ^_^
-            
+
 To, my love Kshitij,
 
 I’m writing this little digital love letter to you because you deserve something cute just like you.
@@ -348,9 +343,4 @@ function openEnvelope() {
 </script>
 
 </body>
-
 </html>
-
-
-
-
