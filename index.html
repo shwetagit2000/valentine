@@ -94,7 +94,7 @@ button {
 }
 
 /* ENVELOPE SCREEN */
-.love-screen {
+/* .love-screen {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -104,6 +104,19 @@ button {
     align-items: center;
     flex-direction: column;
     color: white;
+    z-index: 20;
+} */
+    .love-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(135deg,#31786c,#75f8ff); */
+    background-image: url("iloveyou.jpeg")!important;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* color: white; */
     z-index: 20;
 }
 
@@ -214,7 +227,7 @@ button {
 </div>
 
 <div class="love-screen" id="loveScreen">
-   <h1>💌 A tiny love note is waiting… click me! 💕</h1>
+   <h1 style="color:#fff; position: relative; z-index: 1;">💌 A tiny love note is waiting… click me! 💕</h1>
     <div class="envelope" onclick="openEnvelope()">💌</div>
 </div>
 
@@ -337,6 +350,7 @@ function openEnvelope() {
 </body>
 
 </html>
+
 
 
 
